@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body style="background-color: #ffffff;">
+  <!-- Missing skip link -->
+
+  <!-- Header with non-semantic buttons and ambiguous links -->
+  <header>
+    <img src="logo.png">
+    <div onclick="toggleMenu()" style="cursor: pointer;">Menu</div>
+    <a href="/login">Click here</a>
+    <button><i class="fa fa-search"></i></button>
+  </header>
+
+  <!-- Missing main landmark, heading level skipped (h1 missing, starts with h3) -->
+  <div>
+    <h3>Welcome to our Store</h3>
+    <p style="color: #aaaaaa; background-color: #ffffff;">Special deals for today only.</p>
+
+    <!-- Inaccessible form -->
+    <form>
+      <input type="text" name="email" placeholder="Your email address">
+      <input type="password" name="password">
+      <div role="btn" onclick="submitForm()">Submit</div>
+    </form>
+
+    <!-- Disruptive positive tabindex -->
+    <a href="/terms" target="_blank" tabindex="5">Terms of Service</a>
+
+    <!-- Bad alt text -->
+    <img src="promo.jpg" alt="banner.jpg">
+
+    <!-- ARIA hidden with focusable button -->
+    <div aria-hidden="true">
+      <button>Invisible focus trap</button>
+    </div>
+
+    <!-- Table without th headers -->
+    <table>
+      <tr>
+        <td>Product</td>
+        <td>Price</td>
+      </tr>
+      <tr>
+        <td>Widget A</td>
+        <td>$10.00</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+name: Accessibility PR Audit
+
+on:
+  pull_request:
+    branches: [ main, master ]
+  push:
+    branches: [ main, master ]
+
+jobs:
+  a11y-audit:
+    name: WCAG Accessibility Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Run Accessibility Agent Review
+        run: |
+          dotnet run --project src/AccessibilityAgent.Cli -- review . --comment-output a11y-review.md --patch-output a11y-fixes.patch
+
+      - name: Comment PR with Accessibility Review
+        if: github.event_name == 'pull_request' && failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            if (fs.existsSync('a11y-review.md')) {
+              const body = fs.readFileSync('a11y-review.md', 'utf8');
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: body
+              });
+            }

@@ -1,0 +1,12 @@
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+.vs/
+.vscode/
+a11y-report.*
+report.html
+report.sarif
+pr-comment.md
+pr-fixes.patch
+nupkg/

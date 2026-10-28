@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessible Store Demo - Fully WCAG 2.1 AA Compliant</title>
+</head>
+<body style="background-color: #ffffff; color: #1e293b;">
+  <!-- Skip link for keyboard users -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header role="banner">
+    <img src="logo.png" alt="Accessible Store Logo">
+    <nav aria-label="Main Navigation">
+      <button type="button" aria-expanded="false" aria-controls="main-menu">Menu</button>
+      <a href="/login">Account Login</a>
+      <button type="button" aria-label="Search products"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </nav>
+  </header>
+
+  <main id="main-content" role="main">
+    <h1>Welcome to our Store</h1>
+    <p style="color: #334155; background-color: #ffffff;">Special deals for today only.</p>
+
+    <!-- Accessible form -->
+    <form aria-labelledby="form-heading">
+      <h2 id="form-heading">Customer Sign In</h2>
+      <div>
+        <label for="user-email">Email Address:</label>
+        <input type="email" id="user-email" name="email" autocomplete="email" required>
+      </div>
+      <div>
+        <label for="user-password">Password:</label>
+        <input type="password" id="user-password" name="password" autocomplete="current-password" required>
+      </div>
+      <button type="submit">Sign In to Your Account</button>
+    </form>
+
+    <a href="/terms" target="_blank" rel="noopener noreferrer" aria-label="Terms of Service (opens in a new tab)">Terms of Service</a>
+
+    <img src="promo.jpg" alt="Summer promotion: 20 percent off all widgets through August">
+
+    <!-- Accessible table with headers and scope -->
+    <table aria-label="Product Pricing">
+      <thead>
+        <tr>
+          <th scope="col">Product</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Widget A</td>
+          <td>$10.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>

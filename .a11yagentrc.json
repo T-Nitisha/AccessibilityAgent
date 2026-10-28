@@ -1,0 +1,27 @@
+{
+  "standard": "WCAG21AA",
+  "failOn": "critical",
+  "rules": {
+    "image-alt": "error",
+    "form-input-label": "error",
+    "button-name": "error",
+    "color-contrast": "error",
+    "html-has-lang": "error",
+    "keyboard-navigable": "error",
+    "tabindex-positive": "error",
+    "aria-valid-role": "error",
+    "aria-hidden-focusable": "error"
+  },
+  "include": [
+    "**/*.html",
+    "**/*.cshtml",
+    "**/*.razor",
+    "**/*.jsx",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "**/bin/**",
+    "**/obj/**",
+    "**/node_modules/**"
+  ]
+}

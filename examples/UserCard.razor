@@ -1,0 +1,44 @@
+@* Sample Blazor Component with Accessibility annotations *@
+
+<div class="user-card" role="region" aria-labelledby="user-@UserId-name">
+    <div class="avatar-container">
+        @if (!string.IsNullOrEmpty(AvatarUrl))
+        {
+            <img src="@AvatarUrl" alt="@($"{UserName}'s profile avatar")" class="avatar" />
+        }
+        else
+        {
+            <span class="avatar-placeholder" aria-hidden="true">@UserName.FirstOrDefault()</span>
+        }
+    </div>
+
+    <div class="user-info">
+        <h3 id="user-@UserId-name">@UserName</h3>
+        <p class="role" style="color: #1e293b; background-color: #f1f5f9;">@RoleTitle</p>
+    </div>
+
+    <div class="actions">
+        <button type="button" 
+                class="btn-primary" 
+                @onclick="HandleEdit" 
+                aria-label="@($"Edit profile for {UserName}")">
+            <i class="icon-edit" aria-hidden="true"></i> Edit
+        </button>
+        <button type="button" 
+                class="btn-secondary" 
+                @onclick="HandleMessage" 
+                aria-label="@($"Send message to {UserName}")">
+            <i class="icon-mail" aria-hidden="true"></i> Message
+        </button>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string UserId { get; set; } = "1";
+    [Parameter] public string UserName { get; set; } = "Jane Doe";
+    [Parameter] public string RoleTitle { get; set; } = "Senior Engineer";
+    [Parameter] public string? AvatarUrl { get; set; }
+
+    private void HandleEdit() { }
+    private void HandleMessage() { }
+}

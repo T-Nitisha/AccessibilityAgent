@@ -1,0 +1,13 @@
+<Project>
+  <PropertyGroup>
+    <Authors>T-Nitisha</Authors>
+    <Company>T-Nitisha</Company>
+    <Copyright>Copyright © 2026 T-Nitisha</Copyright>
+    <PackageProjectUrl>https://github.com/T-Nitisha/AccessibilityAgent</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/T-Nitisha/AccessibilityAgent</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>$(NoWarn);NU1902;NU1903</NoWarn>
+  </PropertyGroup>
+</Project>
